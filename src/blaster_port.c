@@ -75,6 +75,25 @@ SOFTWARE.
 // OE/LED: PA8
 #define OE_OUT(d)       PAO(8) = (d)
 #endif
+#elif defined(RFBD)
+// TCK: PA5
+#define TCK_OUT(d)      PBO(4) = (d)
+#define TCK_0()         TCK_OUT(0)
+#define TCK_1()         TCK_OUT(1)
+
+// TDO: PB14
+#define TDO_IN()        PBI(5)
+
+// TDI: PB8
+#define TDI_OUT(d)      PBO(6) = (d)
+
+// TMS: PB6
+#define TMS_OUT(d)      PBO(7) = (d)
+
+#ifdef BLASTER_OE_LED_EN
+// OE/LED: PA8
+#define OE_OUT(d)       PAO(8) = (d)
+#endif
 #else
 #error Unknown platform
 #endif
